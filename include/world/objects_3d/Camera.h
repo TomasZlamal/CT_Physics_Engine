@@ -9,9 +9,10 @@ private:
   r3d::point3d m_camera_pos;
   // what the camera is "looking" at
   r3d::point3d m_camera_direction;
+  r3d::point3d m_camera_up;
 public:
   Camera() = delete;
-  Camera(r3d::point3d camera_pos, r3d::point3d camera_direction);
+  Camera(r3d::point3d camera_pos, r3d::point3d camera_direction, r3d::point3d camera_up);
 };
 }
 #endif

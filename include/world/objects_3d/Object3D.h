@@ -4,8 +4,8 @@
 
 
 
-#include "include/util/vec3.h"
-#include "include/util/using_directives.h"
+#include "../../util/vec3.h"
+#include "../../util/using_directives.h"
 
 namespace r3d{
 template <typename RigidBody>
@@ -13,7 +13,7 @@ class Object3D{
 private:
   RigidBody m_rigid_body;
 public:
-  virtual Object3D() = default;
+  Object3D() = default;
 
 };
 }
