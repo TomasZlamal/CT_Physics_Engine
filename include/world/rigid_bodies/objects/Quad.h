@@ -3,19 +3,21 @@
 #include "Primitive.h"
 
 
-#include "include/util/vec3.h"
-#include "include/util/using_directives.h"
+#include "../../../util/vec3.h"
+#include "../../../util/using_directives.h"
 
 namespace r3d{
 class Quadrilateral : public Primitive{
 private:
-  // pointA is the left-most, bottom-most point
   r3d::point3d m_pointA;
-  // pointB is the right-most, top-most point
   r3d::point3d m_pointB;
 public:
   Quadrilateral();
   Quadrilateral(r3d::point3d pointA, r3d::point3d pointB);
+  r3d::point3d getPointA();
+  r3d::point3d getPointB();
+  void setPointA(r3d::point3d pointA);
+  void setPointB(r3d::point3d pointB);
 };
 }
 #endif

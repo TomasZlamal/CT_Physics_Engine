@@ -1,13 +1,15 @@
 #include "Quad_solver.h"
 namespace r3d{
-void QuadrilateralSolver::solve(Quadrilateral& quad1, Quadrilateral& quad2){
-  // TODO(Before 1.2.2023) Implement solving mechanics for Quadrilaterals
+QuadrilateralSolver::QuadrilateralSolver(Quadrilateral quad)
+  : m_quad(quad){}
+void QuadrilateralSolver::solve(RigidBody& other){
+  // TODO Implement solving mechanics for Quadrilaterals
 }
 // Solver for objects without collisions
-void QuadrilateralSolver::solve(Quadrilateral& quad1, None& none){
+void QuadrilateralSolver::solve(None& other){
   // Do nothing, since there is no collision with a None type Rigid body
 }
-void QuadrilateralSolver::solve(None& none, Quadrilateral& quad1){
-  // Do nothing, since there is no collision with a None type Rigid body
+void QuadrilateralSolver::solve(Triangle& other){
+
 }
 }

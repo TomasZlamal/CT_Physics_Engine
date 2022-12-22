@@ -3,13 +3,17 @@
 #include "Solver.h"
 #include "../objects/Quad.h"
 #include "../objects/None.h"
+#include "../objects/Triangle.h"
 
 namespace r3d{
 class QuadrilateralSolver : public Solver<Quadrilateral>{
+private:
+  Quadrilateral m_quad;
 public:
-  void solve(Quadrilateral& quad1, Quadrilateral& quad2);
-  void solve(Quadrilateral& quad1, None& none);
-  void solve(None& none, Quadrilateral& quad1);
+  QuadrilateralSolver(Quadrilateral quad);
+  void solve(Quadrilateral& other);
+  void solve(None& other);
+  void solve(Triangle& other);
 };
 }
 #endif
