@@ -5,8 +5,13 @@
   #include "Object3D.h"
   namespace r3d{
   class GenericCube : public Object3D{
+  private:
+    Quadrilateral* m_rigid_body;
+    QuadrilateralSolver* m_solver;
   public:
-    using Object3D::Object3D;
+    GenericCube(Quadrilateral* rigid_body, QuadrilateralSolver* solver);
+    Solver* getSolver();
+    RigidBody* getRigidBody();
   };
   }
   #endif

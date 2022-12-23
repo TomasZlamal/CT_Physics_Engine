@@ -5,14 +5,10 @@
 
 namespace r3d{
 class Object3D {
-private:
-	RigidBody* m_rigid_body;
-	Solver* m_solver;
 public:
-	Object3D(RigidBody* rigid_body, Solver* solver);
-	~Object3D();
-	Solver* getSolver();
-	RigidBody* getRigidBody();
+	Object3D() = default;
+	virtual Solver* getSolver() = 0;
+	virtual RigidBody* getRigidBody() = 0;
 };
 }
 #endif

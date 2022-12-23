@@ -8,9 +8,11 @@ void WorldObject::passTime() {
 
 }
 Object3D* WorldObject::getVecObjectAt(int index) {
-	return m_objects[index];
+	return m_objects[index].get();
 }
 void WorldObject::addObject(Object3D* object) {
-	
+	if (dynamic_cast<GenericCube*>(object)) {
+
+	}
 }
 }
