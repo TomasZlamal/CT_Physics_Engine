@@ -4,18 +4,12 @@
 #include "../objects/Quad.h"
 #include "../objects/None.h"
 #include "../objects/Triangle.h"
-class Triangle;
 namespace r3d{
-class QuadrilateralSolver : public Solver<Quadrilateral>{
-private:
-  Quadrilateral& m_quad;
+class QuadrilateralSolver : public Solver{
 public:
   QuadrilateralSolver() = default;
-  QuadrilateralSolver(Quadrilateral& quad);
-  void solve(Quadrilateral& other);
-  void solve(Triangle& other);
-  void solve(None& other);
-  r3d::QuadrilateralSolver& r3d::QuadrilateralSolver::operator=(const r3d::QuadrilateralSolver& other);
+  using Solver::Solver;
+  void solve(RigidBody* other);
 };
 }
 #endif

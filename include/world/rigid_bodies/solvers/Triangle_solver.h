@@ -5,13 +5,10 @@
 #include "../objects/None.h"
 #include "../objects/Triangle.h"
 namespace r3d{
-class TriangleSolver : public Solver<Triangle>{
+class TriangleSolver : public Solver{
 public:
-  TriangleSolver();
-  TriangleSolver(Triangle triangle);
-  void solve(Triangle& other);
-  void solve(Quadrilateral& other);
-  void solve(None& other);
+  TriangleSolver() = default;
+  void solve(RigidBody* other);
 };
 }
 #endif
