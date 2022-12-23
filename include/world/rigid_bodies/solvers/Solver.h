@@ -7,7 +7,6 @@ class Solver{
 private:
   std::weak_ptr<RigidBody> m_rigid_body;
 public:
-  //virtual void solve(RigidBody& other) = 0;
 };
 }
 

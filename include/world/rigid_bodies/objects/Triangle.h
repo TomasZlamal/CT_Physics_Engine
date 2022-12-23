@@ -1,7 +1,8 @@
 #ifndef RENDERING_3D_WORLD_RIGID_BODIES_OBJECTS_TRIANGLE_H
 #define RENDERING_3D_WORLD_RIGID_BODIES_OBJECTS_TRIANGLE_H
 #include "Primitive.h"
-#include "../../objects_3d/Object3D.h"
+#include "../../../util/using_directives.h"
+#include "../../../util/vec3.h"
 namespace r3d{
 class Triangle : public Primitive{
 private:

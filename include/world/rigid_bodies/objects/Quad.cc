@@ -12,9 +12,6 @@ r3d::point3d Quadrilateral::getPointA(){
 r3d::point3d Quadrilateral::getPointB(){
   return m_pointB;
 }
-r3d::point3d Quadrilateral::getPointC(){
-  return m_pointC;
-}
 void Quadrilateral::setPointA(r3d::point3d pointA){
   m_pointA = pointA;
 }
