@@ -14,11 +14,17 @@ class WorldObject
 private:
 	std::vector<std::shared_ptr<Object3D>> m_objects;
 	uint64_t m_time_passed;
+	bool m_isRunning;
 public:
 	WorldObject();
 	void addObject(Object3D* object);
 	void passTime();
-	Object3D* getVecObjectAt(int index);
+	uint64_t getTimePassed();
+	std::weak_ptr<Object3D> getVecObjectAt(int index);
+	uint64_t getObjectCount();
+	void removeAt(uint64_t index);
+	bool isRunning();
+	void stop();
 };
 }
 #endif
