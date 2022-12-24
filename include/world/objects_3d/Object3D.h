@@ -7,8 +7,8 @@ namespace r3d{
 class Object3D {
 public:
 	Object3D() = default;
-	virtual Solver* getSolver() = 0;
-	virtual RigidBody* getRigidBody() = 0;
+	virtual std::weak_ptr<Solver> getSolver() = 0;
+	virtual std::weak_ptr<RigidBody> getRigidBody() = 0;
 };
 }
 #endif

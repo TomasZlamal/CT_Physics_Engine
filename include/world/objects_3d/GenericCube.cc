@@ -1,12 +1,12 @@
 #include "GenericCube.h"
 namespace r3d{
-GenericCube::GenericCube(Quadrilateral* rigid_body, QuadrilateralSolver* solver)
+GenericCube::GenericCube(Cube* rigid_body, CubeSolver* solver)
 	:	m_rigid_body(rigid_body), m_solver(solver){}
-Solver* GenericCube::getSolver()
+std::weak_ptr<Solver> GenericCube::getSolver()
 {
 		return m_solver;
 }
-RigidBody* GenericCube::getRigidBody()
+std::weak_ptr<RigidBody> GenericCube::getRigidBody()
 {
 		return m_rigid_body;
 }

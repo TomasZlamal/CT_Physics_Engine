@@ -7,15 +7,20 @@ WorldObject::WorldObject() {
 }
 void WorldObject::passTime() {
 	for (int i = 0; i < getObjectCount(); i++) {
-		Object3D* temp_obj = getVecObjectAt(i).lock().get();
+		Object3D* temp_obj = getVecObjectAt(i).get();
 		if (static_cast<r3d::GenericCube*>(temp_obj)) {
 			temp_obj = static_cast<r3d::GenericCube*>(temp_obj);
-			r3d::Quadrilateral* rigid_body = static_cast<r3d::Quadrilateral*>(temp_obj->getRigidBody());
-			r3d::QuadrilateralSolver* solver = static_cast<r3d::QuadrilateralSolver*>(temp_obj->getSolver());
+
+			r3d::Cube* rigid_body 
+				= static_cast<r3d::Cube*>(temp_obj->getRigidBody().lock().get());
+
+			r3d::CubeSolver* solver 
+				= static_cast<r3d::CubeSolver*>(temp_obj->getSolver().lock().get());
+
 			for (int j = 0; j < getObjectCount(); j++) {
 				if (i == j) continue;
-				r3d::Object3D* temp_obj2 = getVecObjectAt(j).lock().get();
-				r3d::RigidBody* rigid_body = temp_obj2->getRigidBody();
+				r3d::Object3D* temp_obj2 = getVecObjectAt(j).get();
+				r3d::RigidBody* rigid_body = temp_obj2->getRigidBody().lock().get();
 				solver->solve(rigid_body);
 			}
 		}
@@ -26,7 +31,7 @@ uint64_t WorldObject::getTimePassed()
 {
 	return m_time_passed;
 }
-std::weak_ptr<Object3D> WorldObject::getVecObjectAt(int index) {
+std::shared_ptr<Object3D> WorldObject::getVecObjectAt(int index) {
 	if (index < m_objects.size() && index >= 0) {
 		return m_objects[index];
 	}

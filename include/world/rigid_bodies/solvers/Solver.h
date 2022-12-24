@@ -5,7 +5,7 @@
 namespace r3d{
 class Solver{
 private:
-  RigidBody* m_rigid_body;
+  std::shared_ptr<RigidBody> m_rigid_body;
 public:
   Solver(RigidBody* rigid_body);
 };
