@@ -21,7 +21,6 @@ protected:
 	std::shared_ptr<Solver> m_solver;
 
 	// Debugging variable
-	const objectType m_objectType = objectType::abstract;
 public:
 	Object3D(double mass, std::shared_ptr<RigidBody> rigid_body, std::shared_ptr<Solver> solver);
 	std::weak_ptr<Solver> getSolver();
@@ -32,7 +31,6 @@ public:
 	void setForce(vec3 force);
 	void setVelocity(vec3 velocity);
 	vec3 getVelocity();
-	objectType getObjectType();
 };
 }
 #endif

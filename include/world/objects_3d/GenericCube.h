@@ -7,7 +7,6 @@
 
 namespace r3d{
 class GenericCube : public Object3D{
-	objectType m_objectType = objectType::cube;
 public:
 	GenericCube(double mass, std::shared_ptr<RigidBody> rigid_body, std::shared_ptr<Solver> solver);
 };

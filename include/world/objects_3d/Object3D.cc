@@ -28,10 +28,6 @@ vec3 Object3D::getVelocity()
 {
 	return m_velocity;
 }
-objectType Object3D::getObjectType()
-{
-	return m_objectType;
-}
 std::weak_ptr<Solver> Object3D::getSolver()
 {
 	return m_solver;
