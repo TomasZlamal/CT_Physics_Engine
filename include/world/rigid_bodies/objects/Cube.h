@@ -18,6 +18,7 @@ public:
   r3d::point3d getPointB();
   void setPointA(r3d::point3d pointA);
   void setPointB(r3d::point3d pointB);
+  void moveObject(vec3 dir);
 };
 }
 #endif

@@ -15,6 +15,7 @@ class WorldObject
 {
 private:
 	std::vector<std::shared_ptr<Object3D>> m_objects;
+	vec3 m_gravity = vec3(0, -9.81, 0);
 	uint64_t m_time_passed;
 	bool m_isRunning;
 public:
@@ -28,7 +29,7 @@ public:
 	void removeAt(uint64_t index);
 	void stop();
 	void addObject(Object3D* object);
-	void passTime();
+	void step(double dt);
 };
 }
 #endif

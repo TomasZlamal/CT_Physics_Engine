@@ -5,15 +5,22 @@ WorldObject::WorldObject() {
 	m_time_passed = 0;
 	m_isRunning = true;
 }
-void WorldObject::passTime() {
-	for (int i = 0; i < getObjectCount(); i++) {
+void WorldObject::step(double dt) {
+	// Move part of the code
+	for (std::shared_ptr<Object3D> obj : m_objects) {
+		obj->setForce(obj->getForce()+obj->getMass()*m_gravity);
+
+		obj->setVelocity(obj->getForce()/obj->getMass()*dt);
+		obj->getRigidBody().lock()->moveObject(obj->getVelocity()*dt);
+
+		obj->setForce({0, 0, 0});
+	}
+	// generic object manipulation, dynamic cast not necessary
+	
+	/*for (int i = 0; i < getObjectCount(); i++) {
 		Object3D* temp_obj = getVecObjectAt(i).get();
 		if (static_cast<r3d::GenericCube*>(temp_obj)) {
 			temp_obj = static_cast<r3d::GenericCube*>(temp_obj);
-
-			r3d::Cube* rigid_body 
-				= static_cast<r3d::Cube*>(temp_obj->getRigidBody().lock().get());
-
 			r3d::CubeSolver* solver 
 				= static_cast<r3d::CubeSolver*>(temp_obj->getSolver().lock().get());
 
@@ -25,7 +32,8 @@ void WorldObject::passTime() {
 			}
 		}
 	}
-	m_time_passed++;
+	*/
+	// Useful later
 }
 uint64_t WorldObject::getTimePassed()
 {
@@ -35,6 +43,7 @@ std::shared_ptr<Object3D> WorldObject::getVecObjectAt(int index) {
 	if (index < m_objects.size() && index >= 0) {
 		return m_objects[index];
 	}
+	return 0;
 }
 uint64_t WorldObject::getObjectCount()
 {
@@ -55,7 +64,7 @@ void WorldObject::stop()
 	m_isRunning = false;
 }
 void WorldObject::addObject(Object3D* object) {
-	if (dynamic_cast<GenericCube*>(object)) {
+	if (object->getObjectType() == objectType::cube) {
 		m_objects.push_back(std::shared_ptr<Object3D>(object));
 	}
 }

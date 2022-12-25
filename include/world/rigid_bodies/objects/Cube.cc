@@ -18,4 +18,7 @@ void Cube::setPointA(r3d::point3d pointA){
 void Cube::setPointB(r3d::point3d pointB){
   m_pointB = pointB;
 }
+void Cube::moveObject(vec3 dir) {
+
+}
 }
