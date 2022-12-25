@@ -7,7 +7,7 @@ class Solver{
 private:
   std::shared_ptr<RigidBody> m_rigid_body;
 public:
-  Solver(RigidBody* rigid_body);
+  Solver(std::shared_ptr<RigidBody> rigid_body);
 };
 }
 

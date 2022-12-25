@@ -1,7 +1,7 @@
 #include "Object3D.h"
 
 namespace r3d {
-Object3D::Object3D(double mass, RigidBody* rigid_body, Solver* solver)
+Object3D::Object3D(double mass, std::shared_ptr<RigidBody> rigid_body, std::shared_ptr<Solver> solver)
 	: m_mass(mass), m_force(), m_velocity(), m_rigid_body(rigid_body), m_solver(solver){
 }
 double Object3D::getMass()
