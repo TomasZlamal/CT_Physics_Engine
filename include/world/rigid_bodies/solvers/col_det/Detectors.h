@@ -15,5 +15,6 @@ r3d::CollisionPoints findSpherePlaneCollisionPoints(
 r3d::CollisionPoints findPlaneSphereCollisionPoints(
 	const r3d::PlaneSolver* a, const r3d::RigidBody& ta,
 	const r3d::SphereSolver* b, const r3d::RigidBody& tb);
+// IMPLEMENT: ADD MORE COLLISION TESTERS
 }
 #endif
