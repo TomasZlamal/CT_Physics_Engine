@@ -7,11 +7,14 @@ WorldObject::WorldObject() {
 }
 void WorldObject::step(double dt) {
 	// Move part of the code
-	for (std::shared_ptr<Object3D> obj : m_objects) {
+	if (m_objects.size() < 1)
+		return;
+	Object3D* obj = m_objects[0].get();
+	for (int i = 0; i < m_objects.size(); i++, obj = m_objects[0].get()) {
 		obj->setForce(obj->getForce()+obj->getMass()*m_gravity);
 
-		obj->setVelocity(obj->getForce()/obj->getMass()*dt);
-		obj->getRigidBody().lock()->moveObject(obj->getVelocity()*dt);
+		obj->setVelocity(obj->getVelocity() + obj->getForce() / obj->getMass() * dt);
+		obj->getRigidBody().lock()->setPosition(obj->getRigidBody().lock()->getPosition() + obj->getVelocity()*dt);
 
 		obj->setForce({0, 0, 0});
 	}

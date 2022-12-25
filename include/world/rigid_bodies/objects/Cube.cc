@@ -1,24 +1,28 @@
 #include "Cube.h"
 namespace r3d{
 Cube::Cube(){
-  m_pointA = {};
-  m_pointB = {};
+  m_half_height = {};
+  m_half_width = {};
 }
-Cube::Cube(r3d::point3d pointA, r3d::point3d pointB)
-  : m_pointA(pointA), m_pointB(pointB){}
-r3d::point3d Cube::getPointA(){
-  return m_pointA;
+Cube::Cube(r3d::point3d half_height, r3d::point3d half_width)
+  : m_half_width(half_width), m_half_height(half_height){}
+r3d::point3d Cube::getHalfHeight(){
+  return m_half_height;
 }
-r3d::point3d Cube::getPointB(){
-  return m_pointB;
+r3d::point3d Cube::getHalfWidth(){
+  return m_half_width;
 }
-void Cube::setPointA(r3d::point3d pointA){
-  m_pointA = pointA;
+void Cube::setHalfWidth(r3d::point3d half_width){
+  m_half_width = half_width;
 }
-void Cube::setPointB(r3d::point3d pointB){
-  m_pointB = pointB;
+void Cube::setHalfHeight(r3d::point3d half_height){
+  m_half_height = half_height;
 }
-void Cube::moveObject(vec3 dir) {
+void Cube::setPosition(vec3 dir) {
 
+}
+vec3 Cube::getPosition()
+{
+  return vec3();
 }
 }

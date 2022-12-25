@@ -1,24 +1,25 @@
 #ifndef RENDERING_3D_WORLD_RIGID_BODIES_OBJECTS_QUAD_H
 #define RENDERING_3D_WORLD_RIGID_BODIES_OBJECTS_QUAD_H
-#include "Primitive.h"
+#include "RigidBody.h"
 
 
 #include "../../../util/vec3.h"
 #include "../../../util/using_directives.h"
 
 namespace r3d{
-class Cube : public Primitive{
+class Cube : public RigidBody{
 private:
-  r3d::point3d m_pointA;
-  r3d::point3d m_pointB;
+  r3d::point3d m_half_width;
+  r3d::point3d m_half_height;
 public:
   Cube();
-  Cube(r3d::point3d pointA, r3d::point3d pointB);
-  r3d::point3d getPointA();
-  r3d::point3d getPointB();
-  void setPointA(r3d::point3d pointA);
-  void setPointB(r3d::point3d pointB);
-  void moveObject(vec3 dir);
+  Cube(r3d::point3d half_height, r3d::point3d half_width);
+  r3d::point3d getHalfHeight();
+  r3d::point3d getHalfWidth();
+  void setHalfHeight(r3d::point3d half_height);
+  void setHalfWidth(r3d::point3d pointB);
+  void setPosition(vec3 dir);
+  vec3 getPosition();
 };
 }
 #endif

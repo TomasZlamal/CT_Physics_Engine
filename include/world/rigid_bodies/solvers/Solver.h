@@ -4,13 +4,29 @@
 #include "../objects/RigidBody.h"
 #include "../../../util/vec3.h"
 namespace r3d{
+struct CollisionPoints {
+  vec3 A;
+  vec3 B;
+  vec3 normal; // B-A
+  double depth;
+  bool hasCollision;
+};
+class SphereSolver;
+class PlaneSolver;
 class Solver{
-private:
-  std::shared_ptr<RigidBody> m_rigid_body;
 public:
-  Solver(std::shared_ptr<RigidBody> rigid_body);
-  virtual vec3 solve(std::shared_ptr<RigidBody> other) = 0;
-  // returns in what direction the object should move to
+  virtual CollisionPoints testCollision(
+    const RigidBody* other,
+    const Solver* solver,
+    const RigidBody* colliderTransform) const = 0;
+  virtual CollisionPoints testCollision(
+    const RigidBody* other,
+    const PlaneSolver* solver,
+    const RigidBody* colliderTransform) const = 0;
+  virtual CollisionPoints testCollision(
+    const RigidBody* other,
+    const SphereSolver* solver,
+    const RigidBody* colliderTransform) const = 0;
 };
 }
 

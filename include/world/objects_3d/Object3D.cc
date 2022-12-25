@@ -28,6 +28,14 @@ vec3 Object3D::getVelocity()
 {
 	return m_velocity;
 }
+double Object3D::getRotationRad()
+{
+	return m_rotation_radians;
+}
+void Object3D::setRotationRad(double radians)
+{
+	m_rotation_radians = radians;
+}
 std::weak_ptr<Solver> Object3D::getSolver()
 {
 	return m_solver;

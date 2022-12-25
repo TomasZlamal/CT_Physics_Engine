@@ -1,10 +1,10 @@
 #ifndef RENDERING_3D_WORLD_RIGID_BODIES_OBJECTS_TRIANGLE_H
 #define RENDERING_3D_WORLD_RIGID_BODIES_OBJECTS_TRIANGLE_H
-#include "Primitive.h"
+#include "RigidBody.h"
 #include "../../../util/using_directives.h"
 #include "../../../util/vec3.h"
 namespace r3d{
-class Pyramid : public Primitive{
+class Pyramid : public RigidBody{
 private:
   r3d::point3d m_pointA;
   r3d::point3d m_pointB;

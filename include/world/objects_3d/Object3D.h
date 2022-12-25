@@ -19,6 +19,7 @@ protected:
 	vec3 m_velocity;
 	std::shared_ptr<RigidBody> m_rigid_body;
 	std::shared_ptr<Solver> m_solver;
+	double m_rotation_radians;
 
 	// Debugging variable
 public:
@@ -31,6 +32,8 @@ public:
 	void setForce(vec3 force);
 	void setVelocity(vec3 velocity);
 	vec3 getVelocity();
+	double getRotationRad();
+	void setRotationRad(double radians);
 };
 }
 #endif

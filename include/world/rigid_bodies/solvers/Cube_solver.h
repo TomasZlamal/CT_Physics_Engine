@@ -8,8 +8,6 @@ namespace r3d{
 class CubeSolver : public Solver{
 public:
   CubeSolver() = default;
-  using Solver::Solver;
-  vec3 solve(std::shared_ptr<RigidBody> other);
 };
 }
 #endif
