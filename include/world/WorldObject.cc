@@ -64,8 +64,6 @@ void WorldObject::stop()
 	m_isRunning = false;
 }
 void WorldObject::addObject(Object3D* object) {
-	if (object->getObjectType() == objectType::cube) {
-		m_objects.push_back(std::shared_ptr<Object3D>(object));
-	}
+	m_objects.push_back(std::shared_ptr<Object3D>(object));
 }
 }

@@ -8,7 +8,7 @@ namespace r3d{
 class PyramidSolver : public Solver{
 public:
   PyramidSolver() = default;
-  void solve(RigidBody* other);
+  vec3 solve(std::shared_ptr<RigidBody> other);
 };
 }
 #endif

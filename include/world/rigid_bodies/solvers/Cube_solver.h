@@ -9,7 +9,7 @@ class CubeSolver : public Solver{
 public:
   CubeSolver() = default;
   using Solver::Solver;
-  void solve(std::shared_ptr<RigidBody> other);
+  vec3 solve(std::shared_ptr<RigidBody> other);
 };
 }
 #endif

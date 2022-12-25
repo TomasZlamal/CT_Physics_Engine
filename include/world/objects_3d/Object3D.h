@@ -20,12 +20,8 @@ protected:
 	std::shared_ptr<RigidBody> m_rigid_body;
 	std::shared_ptr<Solver> m_solver;
 
-	// Tell the computer how to treat the object as, whether it is a cube, pyramid or sphere.
+	// Debugging variable
 	const objectType m_objectType = objectType::abstract;
-
-	// Verify that the object was initialized with the proper solver and object
-	// e.g for the GenericCube class it needs to be initialized with the Cube RigidBody and the
-	// CubeSolver Solver
 public:
 	Object3D(double mass, std::shared_ptr<RigidBody> rigid_body, std::shared_ptr<Solver> solver);
 	std::weak_ptr<Solver> getSolver();
